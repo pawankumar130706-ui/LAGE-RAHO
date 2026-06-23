@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Career Juction Quiz</title>
+<style>
+body{
+font-family:Arial;
+padding:20px;
+background:#f5f5f5;
+}
+.card{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+.option{
+padding:8px;
+margin:5px 0;
+background:#eee;
+border-radius:5px;
+}
+</style>
+</head>
+<body>
+
+<h2>Career Juction Questions</h2>
+
+<div id="questions"></div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+getFirestore,
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "YOUR_API_KEY",
+authDomain: "career-juction.firebaseapp.com",
+projectId: "career-juction",
+storageBucket: "career-juction.appspot.com",
+messagingSenderId: "721682821282",
+appId: "1:721682821282:web:ae8505aefc19e4c7d567fb"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const querySnapshot = await getDocs(collection(db,"questions"));
+
+let html="";
+
+querySnapshot.forEach((doc)=>{
+
+const q=doc.data();
+
+html += `
+<div class="card">
+<h3>${q.question}</h3>
+
+<div class="option">${q.option1}</div>
+<div class="option">${q.option2}</div>
+<div class="option">${q.option3}</div>
+<div class="option">${q.option4}</div>
+
+</div>
+`;
+
+});
+
+document.getElementById("questions").innerHTML=html;
+
+</script>
+
+</body>
+</html>
