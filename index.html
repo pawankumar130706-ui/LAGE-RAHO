@@ -3,245 +3,475 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Career Juction</title>
+<title>Career Juction - Smart Exam Prep</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f6f8fc;color:#07122f}
-header{background:#061b55;color:white;padding:18px;text-align:center}
-nav{background:#082d78;color:white;padding:12px;text-align:center}
-nav span{margin:10px;font-weight:bold}
-.card{background:white;margin:18px;padding:20px;border-radius:14px;box-shadow:0 5px 15px #0001}
-.btn{background:#ffd21f;border:0;padding:12px 18px;border-radius:8px;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f5f7fb;
+  color:#07122f;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+}
+
+.header{
+  background:#061b55;
+  color:white;
+  padding:14px 22px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:900;
+  min-width:220px;
+}
+
+.logo span{
+  display:block;
+  font-size:12px;
+  font-weight:400;
+}
+
+.search{
+  flex:1;
+}
+
+.search input{
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  border:none;
+  font-size:15px;
+}
+
+.login{
+  background:#ffd21f;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:800;
+}
+
+.wrapper{
+  display:grid;
+  grid-template-columns:230px 1fr 320px;
+  gap:20px;
+  padding:18px;
+}
+
+.sidebar{
+  background:white;
+  border-radius:14px;
+  padding:15px;
+  box-shadow:0 5px 18px #00000012;
+  height:max-content;
+}
+
+.sidebar a{
+  display:block;
+  padding:13px;
+  margin-bottom:6px;
+  border-radius:9px;
+  font-weight:700;
+}
+
+.sidebar a.active,
+.sidebar a:hover{
+  background:#061b55;
+  color:white;
+}
+
+.main{
+  min-width:0;
+}
+
+.hero{
+  background:linear-gradient(120deg,#061b55,#0b5ed7);
+  color:white;
+  border-radius:20px;
+  padding:38px;
+  display:grid;
+  grid-template-columns:1fr 260px;
+  min-height:300px;
+  box-shadow:0 10px 25px #00000020;
+}
+    .hero-text h1{
+  font-size:42px;
+  line-height:1.1;
+  margin-bottom:12px;
+}
+
+.hero-text h3{
+  color:#ffd21f;
+  margin-bottom:15px;
+}
+
+.hero-text p{
+  font-size:16px;
+  margin-bottom:20px;
+}
+
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.chip{
+  border:1px solid rgba(255,255,255,.25);
+  padding:8px 12px;
+  border-radius:8px;
+  font-size:13px;
+}
+
+.hero-btn{
+  background:#ffd21f;
+  color:#061b55;
+  padding:14px 24px;
+  border-radius:10px;
+  font-weight:800;
+}
+
+.hero-image{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-image div{
+  width:180px;
+  height:180px;
+  background:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:70px;
+}
+
+.card{
+  background:white;
+  border-radius:14px;
+  padding:20px;
+  margin-top:20px;
+  box-shadow:0 5px 18px #00000012;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.exam-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+
+.exam{
+  border:1px solid #e5eaf3;
+  border-radius:14px;
+  padding:20px;
+  text-align:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.exam:hover{
+  transform:translateY(-5px);
+}
+
+.exam-icon{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.exam button{
+  background:#ffd21f;
+  padding:10px 16px;
+  border-radius:8px;
+  margin-top:10px;
+  font-weight:700;
+}
+    .rightbar{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.news-item{
+  display:flex;
+  gap:12px;
+  margin-bottom:15px;
+}
+
+.news-thumb{
+  width:70px;
+  height:70px;
+  background:#eaf2ff;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+}
+
+.news-text h4{
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.news-text p{
+  font-size:12px;
+  color:#666;
+}
+
+.quiz-option{
+  display:block;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  margin-bottom:10px;
+  cursor:pointer;
+}
+
+.quiz-btn{
+  width:100%;
+  background:#061b55;
+  color:white;
+  padding:12px;
+  border-radius:8px;
+  font-weight:700;
+}
+
+.rank-item{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+@media(max-width:1000px){
+
+.wrapper{
+  grid-template-columns:1fr;
+}
+
+.sidebar,
+.rightbar{
+  display:none;
+}
+
+.hero{
+  grid-template-columns:1fr;
+}
+
+.hero-text h1{
+  font-size:30px;
+}
+
+}
 </style>
 </head>
+
 <body>
 
-<header>
-<h1>🎓 Career Juction</h1>
-<p>Founder: Pawan Kumar</p>
-</header>
+<div class="header">
 
-<nav>
-<span>Home</span>
-<span>Latest Jobs</span>
-<span>Mock Test</span>
-<span>Current Affairs</span>
-<span>Results</span>
-</nav>
-<section class="card">
-<h2>🚀 Welcome to Career Juction</h2>
-<p>India's Smart Job & Exam Preparation Platform</p>
-<br>
+<div class="logo">
+🎓 Career Juction
+<span>India's Smart Exam Prep Platform</span>
+</div>
 
-<button class="btn">Start Mock Test</button>
-<button class="btn">Latest Jobs</button>
+<div class="search">
+<input type="text" placeholder="Search exams, tests, notes...">
+</div>
 
-<br><br>
+<button class="login">Login</button>
+
+</div>
+
+<div class="wrapper">
+
+<div class="sidebar">
+
+<a class="active">🏠 Home</a>
+<a>📚 Exams</a>
+<a>📝 Mock Tests</a>
+<a>📰 Current Affairs</a>
+<a>📄 Previous Year Papers</a>
+<a>❓ Free Quiz</a>
+<a>📊 Results</a>
+<a>🏆 Leaderboard</a>
+
+</div>
+
+<div class="main">
+
+<div class="hero">
+
+<div class="hero-text">
+
+<h1>Welcome to Career Juction</h1>
+
+<h3>India's Smart Exam Preparation Platform</h3>
 
 <p>
-✅ Daily Job Update<br>
-✅ Current Affairs<br>
-✅ Mock Tests<br>
-✅ Previous Year Questions<br>
-✅ Admit Card & Results
+Latest Jobs • Mock Tests • Current Affairs • Results
 </p>
-</section>
 
-<section class="card">
-<h2>📚 Popular Exams</h2>
+<div class="chips">
+<div class="chip">Daily Quiz</div>
+<div class="chip">Mock Tests</div>
+<div class="chip">Current Affairs</div>
+<div class="chip">PYQ Papers</div>
+</div>
 
-<div class="grid">
+<button class="hero-btn">
+Start Mock Test
+</button>
 
+</div>
+
+<div class="hero-image">
+<div>🎓</div>
+</div>
+
+</div>
 <div class="card">
+<div class="section-title">
+<h2>Popular Exams</h2>
+<b>View All</b>
+</div>
+
+<div class="exam-grid">
+
+<div class="exam">
+<div class="exam-icon">🏅</div>
 <h3>SSC Exams</h3>
 <p>CGL, CHSL, GD, MTS</p>
-<button class="btn">View Tests</button>
+<button>View Tests</button>
 </div>
 
-<div class="card">
+<div class="exam">
+<div class="exam-icon">🚆</div>
 <h3>Railway Exams</h3>
 <p>NTPC, Group D, ALP</p>
-<button class="btn">View Tests</button>
+<button>View Tests</button>
 </div>
 
-<div class="card">
+<div class="exam">
+<div class="exam-icon">🏦</div>
 <h3>Banking Exams</h3>
 <p>IBPS, SBI, RBI</p>
-<button class="btn">View Tests</button>
+<button>View Tests</button>
 </div>
 
-<div class="card">
+<div class="exam">
+<div class="exam-icon">🟣</div>
 <h3>Bihar Exams</h3>
 <p>BSSC, Bihar Police</p>
-<button class="btn">View Tests</button>
+<button>View Tests</button>
+</div>
+
+</div>
 </div>
 
 <div class="card">
-<h3>Teaching Exams</h3>
-<p>CTET, STET</p>
-<button class="btn">View Tests</button>
+<div class="section-title">
+<h2>Latest Job Updates</h2>
+<b>View All</b>
+</div>
+
+<p>💼 Bihar Police Constable Recruitment 2026</p><br>
+<p>💼 SSC GD New Vacancy</p><br>
+<p>💼 Railway Group D Notification</p><br>
+<p>💼 IBPS Clerk Recruitment</p>
 </div>
 
 </div>
-</section><section class="card">
-<h2>📰 Daily Current Affairs</h2>
+
+<div class="rightbar">
 
 <div class="card">
-<h3>National News</h3>
-<p>India launches new development projects.</p>
+<h3>Daily Current Affairs</h3>
+
+<div class="news-item">
+<div class="news-thumb">🚀</div>
+<div class="news-text">
+<h4>India Test Fires Missile</h4>
+<p>National Update</p>
+</div>
 </div>
 
-<div class="card">
-<h3>International News</h3>
-<p>Global summit highlights important agreements.</p>
+<div class="news-item">
+<div class="news-thumb">🌍</div>
+<div class="news-text">
+<h4>G7 Summit Highlights</h4>
+<p>International News</p>
+</div>
 </div>
 
-<div class="card">
-<h3>Sports Update</h3>
-<p>Latest cricket and sports news updates.</p>
+<div class="news-item">
+<div class="news-thumb">🏏</div>
+<div class="news-text">
+<h4>Sports Latest Update</h4>
+<p>Sports News</p>
+</div>
 </div>
 
-</section>
-
-<section class="card">
-<h2>📝 Daily Quiz</h2>
-
-<p><b>Q1.</b> भारत का संविधान कब लागू हुआ?</p>
-
-<button class="btn">15 August 1947</button>
-<button class="btn">26 January 1950</button>
-<button class="btn">2 October 1950</button>
-<button class="btn">26 November 1949</button>
-
-</section>
-
-<section class="card">
-<h2>🏆 Top Rankers</h2>
-
-<ul>
-<li>🥇 Rahul Kumar - 1250 Marks</li>
-<li>🥈 Priya Singh - 1180 Marks</li>
-<li>🥉 Aman Raj - 1120 Marks</li>
-<li>4️⃣ Student User - 1050 Marks</li>
-</ul>
-
-</section>
-
-<section class="card">
-<h2>📄 Admit Card & Results</h2>
-
-<ul>
-<li>SSC GD Admit Card</li>
-<li>Railway Group D Admit Card</li>
-<li>Bihar Police Result</li>
-<li>BSSC Result</li>
-<li>IBPS Clerk Result</li>
-</ul>
-
-</section>
-
-<section class="card">
-<h2>💼 Latest Job Updates</h2>
-
-<ul>
-<li>Bihar Police Constable Recruitment 2026</li>
-<li>SSC GD New Vacancy</li>
-<li>Railway Group D Notification</li>
-<li>IBPS Clerk Recruitment</li>
-<li>BSSC Inter Level Vacancy</li>
-</ul>
-
-</section>
-<section class="card">
-<h2>📊 Website Stats</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>10,000+</h3>
-<p>Students</p>
 </div>
 
 <div class="card">
-<h3>500+</h3>
-<p>Mock Tests</p>
+<h3>Daily Quiz</h3>
+<br>
+<p><b>Q.</b> भारत का संविधान कब लागू हुआ?</p>
+<br>
+<label class="quiz-option">○ 15 August 1947</label>
+<label class="quiz-option">○ 26 January 1950</label>
+<label class="quiz-option">○ 2 October 1950</label>
+<label class="quiz-option">○ 26 November 1949</label>
+<button class="quiz-btn">Submit Answer</button>
 </div>
 
 <div class="card">
-<h3>1000+</h3>
-<p>Current Affairs</p>
+<h3>Top Performers</h3>
+<br>
+<div class="rank-item"><span>🥇 Rahul Kumar</span><b>1250</b></div>
+<div class="rank-item"><span>🥈 Priya Singh</span><b>1180</b></div>
+<div class="rank-item"><span>🥉 Aman Raj</span><b>1120</b></div>
 </div>
 
-<div class="card">
-<h3>24×7</h3>
-<p>Updates</p>
 </div>
 
 </div>
-</section>
 
-<footer style="background:#061b55;color:white;padding:25px;text-align:center;margin-top:20px;">
+<footer style="background:#061b55;color:white;text-align:center;padding:25px;margin-top:20px;">
 <h3>Career Juction</h3>
 <p>Founder: Pawan Kumar</p>
-<p>Latest Jobs • Mock Test • Current Affairs • Results</p>
 <p>© 2026 All Rights Reserved</p>
 </footer>
 
-</body>
-</html>
-<script>
-
-let score = 0;
-
-function correctAnswer(){
-    score += 2;
-    document.getElementById("score").innerHTML = score;
-    alert("Correct Answer");
-}
-
-function wrongAnswer(){
-    alert("Wrong Answer");
-}
-
-let timeLeft = 300;
-
-function startTimer(){
-
-setInterval(function(){
-
-let minutes = Math.floor(timeLeft/60);
-let seconds = timeLeft%60;
-
-document.getElementById("timer").innerHTML =
-minutes + ":" + seconds;
-
-timeLeft--;
-
-},1000);
-
-}
-
-</script>
-
-<section class="card">
-
-<h2>⏱ Mock Test Timer</h2>
-
-<h1 id="timer">5:00</h1>
-
-<button class="btn" onclick="startTimer()">
-Start Test
-</button>
-
-</section>
-
-<section class="card">
-
-<h2>📈 Your Score</h2>
-
-<h1 id="score">0</h1>
-
-</section>
 </body>
 </html>
