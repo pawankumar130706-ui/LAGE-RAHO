@@ -2,179 +2,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Career Juction - Exam Prep Platform</title><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f7fb;color:#111}
-header{background:#071952;color:#fff;padding:14px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
-.logo{font-size:24px;font-weight:800}
-nav a{color:white;text-decoration:none;margin:0 12px;font-weight:600}
-.loginBtn{background:#ffb703;color:#000;padding:10px 18px;border-radius:8px;border:none;font-weight:700}
-.hero{padding:55px 6%;background:linear-gradient(120deg,#071952,#0b5ed7);color:white;display:grid;grid-template-columns:1.2fr 1fr;gap:25px;align-items:center}
-.hero h1{font-size:42px}
-.hero p{font-size:18px;margin:15px 0}
-.btn{background:#ffb703;color:#000;border:none;padding:13px 22px;border-radius:9px;font-weight:700;cursor:pointer;margin:6px}
-.btn2{background:white;color:#0b5ed7}
-.card{background:white;border-radius:16px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
-.container{padding:35px 6%}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
-.sectionTitle{font-size:28px;margin-bottom:20px}
-.exam{border-left:5px solid #0b5ed7}
-input{width:100%;padding:13px;margin:8px 0;border:1px solid #ccc;border-radius:8px}
-.quizBox{max-width:850px;margin:auto}
-.option{width:100%;padding:14px;margin:10px 0;text-align:left;border:1px solid #0b5ed7;border-radius:10px;background:white;cursor:pointer;font-size:16px}
-.option:hover{background:#eef5ff}
-.topStats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px;margin-bottom:25px}
-.stat{background:#071952;color:white;padding:18px;border-radius:14px;text-align:center}
-.stat h2{font-size:30px}
-.hidden{display:none}
-.leader p{padding:8px;border-bottom:1px solid #eee}
-footer{background:#071952;color:white;text-align:center;padding:25px;margin-top:30px}
-@media(max-width:800px){.hero{grid-template-columns:1fr}.hero h1{font-size:30px}nav{display:none}}
-</style></head><body><header>
-  <div class="logo">Career Juction</div>
-  <nav>
-    <a href="#exams">Exams</a>
-    <a href="#mock">Mock Test</a>
-    <a href="#current">Current Affairs</a>
-    <a href="#leaderboard">Leaderboard</a>
-  </nav>
-  <button class="loginBtn" onclick="showLogin()">Login</button>
-</header><section class="hero">
-  <div>
-    <h1>India’s Smart Exam Preparation Platform</h1>
-    <p>SSC, Railway, Banking, Bihar Exams ke liye Daily Quiz, Mock Test, PYQ aur Current Affairs.</p>
-    <button class="btn" onclick="startMock()">Start Free Mock Test</button>
-    <button class="btn btn2" onclick="document.getElementById('exams').scrollIntoView()">Explore Exams</button>
-  </div>  <div class="card" style="color:#111">
-    <h2>Login / Register</h2>
-    <input id="userName" placeholder="Enter your name">
-    <input id="userEmail" placeholder="Enter your email">
-    <button class="btn" onclick="login()">Login Now</button>
-    <p id="loginStatus">Status: Guest User</p>
-  </div>
-</section><div class="container">  <div class="topStats">
-    <div class="stat"><h2 id="score">0</h2><p>Score</p></div>
-    <div class="stat"><h2 id="attempted">0</h2><p>Attempted</p></div>
-    <div class="stat"><h2 id="correct">0</h2><p>Correct</p></div>
-    <div class="stat"><h2 id="timer">10:00</h2><p>Time Left</p></div>
-  </div>  <section id="exams">
-    <h2 class="sectionTitle">Popular Exams</h2>
-    <div class="grid">
-      <div class="card exam"><h3>SSC Exams</h3><p>SSC GD, CGL, CHSL, MTS</p><button class="btn">View Tests</button></div>
-      <div class="card exam"><h3>Railway Exams</h3><p>Group D, NTPC, ALP</p><button class="btn">View Tests</button></div>
-      <div class="card exam"><h3>Bihar Exams</h3><p>BSSC, Bihar Police, Daroga</p><button class="btn">View Tests</button></div>
-      <div class="card exam"><h3>Banking Exams</h3><p>IBPS, SBI, Clerk, PO</p><button class="btn">View Tests</button></div>
-    </div>
-  </section><br><br>
-
-  <section id="mock" class="card quizBox">
-    <h2>Live Mock Test</h2>
-    <p><b id="questionNo">Q1.</b> <span id="questionText">भारत का संविधान कब लागू हुआ?</span></p><button class="option" onclick="answer(0)">15 August 1947</button>
-<button class="option" onclick="answer(1)">26 January 1950</button>
-<button class="option" onclick="answer(2)">2 October 1950</button>
-<button class="option" onclick="answer(3)">26 November 1949</button>
-
-<h3 id="result"></h3>
-<button class="btn" onclick="nextQuestion()">Next Question</button>
-<button class="btn btn2" onclick="finishTest()">Submit Test</button>
-
-  </section><br><br>
-
-  <section id="current">
-    <h2 class="sectionTitle">Daily Current Affairs</h2>
-    <div class="grid">
-      <div class="card"><h3>Today GK</h3><p>National, International, Sports, Economy daily update.</p></div>
-      <div class="card"><h3>Daily Quiz</h3><p>10 questions daily practice ke liye.</p></div>
-      <div class="card"><h3>PYQ Practice</h3><p>Previous year questions topic wise.</p></div>
-    </div>
-  </section><br><br>
-
-  <section id="leaderboard">
-    <h2 class="sectionTitle">Leaderboard</h2>
-    <div class="card leader">
-      <p>🥇 Pawan Kumar - 95 Marks</p>
-      <p>🥈 Student User - 88 Marks</p>
-      <p>🥉 Guest User - 75 Marks</p>
-    </div>
-  </section></div><footer>
-  <p>© 2026 Career Juction | Founder: Sanket Kumar</p>
-  <p>Made for exam preparation and learning purpose.</p>
-</footer><script>
-let questions=[
-  {q:"भारत का संविधान कब लागू हुआ?",o:["15 August 1947","26 January 1950","2 October 1950","26 November 1949"],a:1},
-  {q:"भारत की राजधानी क्या है?",o:["Patna","Delhi","Mumbai","Kolkata"],a:1},
-  {q:"Bihar की राजधानी क्या है?",o:["Gaya","Patna","Muzaffarpur","Bhagalpur"],a:1},
-  {q:"CPU का full form क्या है?",o:["Central Process Unit","Central Processing Unit","Computer Personal Unit","Control Power Unit"],a:1},
-  {q:"भारत का राष्ट्रीय पशु कौन है?",o:["Lion","Tiger","Elephant","Cow"],a:1}
-];
-
-let current=0, score=0, attempted=0, correct=0, answered=false;
-let timeLeft=600, timerStarted=false, timerInterval;
-
-function login(){
-  let name=document.getElementById("userName").value;
-  if(name.trim()==""){alert("Name enter karo");return;}
-  document.getElementById("loginStatus").innerHTML="Status: Logged in as "+name;
+<title>Career Juction - Latest Jobs & Exam Prep</title><style>
+:root{
+  --blue:#061b55;
+  --blue2:#0b5ed7;
+  --yellow:#ffd21f;
+  --bg:#f6f8fc;
+  --white:#ffffff;
+  --text:#07122f;
+  --muted:#6b7280;
+  --border:#e5eaf3;
+  --green:#18a058;
+  --red:#ef4444;
+  --purple:#7c3aed;
 }
 
-function showLogin(){
-  window.scrollTo({top:0,behavior:"smooth"});
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
 }
 
-function startMock(){
-  document.getElementById("mock").scrollIntoView({behavior:"smooth"});
-  startTimer();
+body{
+  background:var(--bg);
+  color:var(--text);
 }
 
-function startTimer(){
-  if(timerStarted)return;
-  timerStarted=true;
-  timerInterval=setInterval(()=>{
-    let m=Math.floor(timeLeft/60);
-    let s=timeLeft%60;
-    document.getElementById("timer").innerHTML=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
-    if(timeLeft<=0){finishTest();}
-    timeLeft--;
-  },1000);
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-function answer(selected){
-  if(answered)return;
-  answered=true;
-  attempted++;
-  document.getElementById("attempted").innerHTML=attempted;
-
-  if(selected===questions[current].a){
-    score+=2;
-    correct++;
-    document.getElementById("score").innerHTML=score;
-    document.getElementById("correct").innerHTML=correct;
-    document.getElementById("result").innerHTML="✅ Correct Answer +2 Marks";
-  }else{
-    document.getElementById("result").innerHTML="❌ Wrong Answer";
-  }
+button{
+  cursor:pointer;
+  border:none;
 }
 
-function nextQuestion(){
-  if(current<questions.length-1){
-    current++;
-    answered=false;
-    document.getElementById("questionNo").innerHTML="Q"+(current+1)+".";
-    document.getElementById("questionText").innerHTML=questions[current].q;
-    let btn=document.querySelectorAll(".option");
-    for(let i=0;i<4;i++){
-      btn[i].innerHTML=questions[current].o[i];
-      btn[i].style.background="white";
-    }
-    document.getElementById("result").innerHTML="";
-  }else{
-    finishTest();
-  }
+.topbar{
+  height:70px;
+  background:linear-gradient(90deg,#06133c,#082c75);
+  color:white;
+  display:flex;
+  align-items:center;
+  gap:25px;
+  padding:0 28px;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
 
-function finishTest(){
-  clearInterval(timerInterval);
-  alert("Test Submitted! Your Score: "+score+" / "+(questions.length*2));
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:280px;
 }
-</script></body>
-</html>
+
+.logoBox{
+  width:48px;
+  height:48px;
+  border-radius:14px;
+  background:white;
+  color:var(--blue);
+  display:grid;
+  place-items:center;
+  font-size:26px;
+  font-weight:900;
+}
+
+.brand h1{
+  font-size:24px;
+  line-height:1;
+}
+
+.brand p{
+  font-size:13px;
+  margin-top:5px;
+  opacity:.9;
+}
+
+.searchBox{
+  flex:1;
+  display:flex;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  max-width:560px;
+}
+
+.searchBox input{
+  flex:1;
+  border:none;
+  outline:none;
+  padding:14px 15px;
+  font-size:15px;
+}
+
+.searchBox button{
+  width:52px;
+  background:white;
+  font-size:22px;
+}
+
+.userArea{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#eef2ff;
+  color:#071952;
+  display:grid;
+  place-items:center;
+  font-size:24px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns:220px 1fr 330px;
+  gap:24px;
+  padding:18px;
+}
+
+.sidebar{
+  position:sticky;
+  top:88px;
+  height:calc(100vh - 100px);
+  overflow:auto;
+}
+
+.sideLink{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border-radius:9px;
+  margin-bottom:5px;
+  font-weight:700;
+  font-size:15px;
+}
+
+.sideLink.active{
+  background:#082d78;
+  color:white;
+}
+
+.premium{
+  margin-top:24px;
+  background:linear-gradient(140deg,#fff3d2,#fff);
+  border:1px solid #ffe2a0;
+  border-radius:14px;
+  padding:17px;
+}
+
+.premium h3{
+  font-size:18px;
+}
+
+.premium p{
+  font-size:13px;
+  margin:10px 0;
+  color:#172554;
+  line-height:1.5;
+}
+
+.premium button{
+  width:100%;
+  padding:12px;
+  background:#082d78;
+  color:white;
+  border-radius:8px;
+  font-weight:800;
+}
