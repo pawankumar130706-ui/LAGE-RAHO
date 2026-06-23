@@ -1,194 +1,108 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lage Raho - Current Affairs Quiz</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Junction - Exam Preparation</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+    body{background:#f4f7fb;color:#222}
+    header{background:#0b1f3a;color:white;padding:18px;text-align:center}
+    header h1{font-size:28px}
+    header p{margin-top:6px;color:#d9e6ff}
+    nav{background:#102f57;padding:12px;text-align:center}
+    nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
+    .hero{padding:35px 18px;text-align:center;background:linear-gradient(135deg,#0b1f3a,#1d72ff);color:white}
+    .hero h2{font-size:30px;margin-bottom:10px}
+    .btn{display:inline-block;margin:10px;padding:12px 18px;background:#ffcc00;color:#111;text-decoration:none;border-radius:8px;font-weight:bold}
+    .section{padding:28px 15px;max-width:1100px;margin:auto}
+    .section h2{text-align:center;margin-bottom:20px;color:#0b1f3a}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+    .card{background:white;padding:18px;border-radius:12px;box-shadow:0 4px 12px #0001}
+    .card h3{color:#1d72ff;margin-bottom:8px}
+    .card p{font-size:14px;line-height:1.5}
+    .update{background:#fff7d6;border-left:5px solid #ffcc00}
+    footer{background:#0b1f3a;color:white;text-align:center;padding:18px;margin-top:25px}
+  </style>
 </head>
-
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">LR</div>
-      <div>
-        <h1>Lage Raho</h1>
-        <p>Current Affairs Prediction • Quiz • Rank</p>
-      </div>
-    </div>
 
-    <div class="top-actions">
-      <button id="themeBtn">🌙 Dark/Light</button>
-      <a href="#quiz" class="start-btn">Start Test</a>
-    </div>
-  </header>
+<header>
+  <h1>Career Junction</h1>
+  <p>Competition Exam Preparation | Notes | Quiz | Current Affairs</p>
+</header>
 
-  <section class="hero">
-    <div>
-      <span class="pill">Founder: Pawan Kumar</span>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#current">Current Affairs</a>
+  <a href="#subjects">Subjects</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#notes">PDF Notes</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-      <div style="text-align:center;margin:25px 0;">
-        <img src="founder.jpg.png" alt="Pawan Kumar"
-        style="width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid #00ff88;box-shadow:0 0 25px rgba(0,255,136,0.6);">
+<section class="hero" id="home">
+  <h2>Prepare Smart, Score Better</h2>
+  <p>Bihar SSC, Railway, SSC, Police, Banking aur sabhi competitive exams ke liye complete study material.</p>
+  <a class="btn" href="#subjects">Start Learning</a>
+  <a class="btn" href="#quiz">Daily Quiz</a>
+</section>
 
-        <h3 style="margin-top:15px;color:#ffffff;">Pawan Kumar</h3>
-        <p style="color:#00ff88;font-weight:700;">Founder & CEO</p>
-        <p style="color:#cbd5e1;max-width:650px;margin:auto;">
-          B.Tech CSE Student at RIT Roorkee. Passionate about Current Affairs,
-          Education, Technology and Competitive Exam Preparation.
-        </p>
-      </div>
+<section class="section update" id="current">
+  <h2>Daily Current Affairs</h2>
+  <div class="card">
+    <h3>Today Update</h3>
+    <p>Yaha daily current affairs update karo: National, International, Bihar, Sports, Awards, Schemes.</p>
+  </div>
+</section>
 
-      <h2>Professional Current Affairs Practice Platform</h2>
-      <p>
-        Daily expected questions, instant score, timer, rank, leaderboard,
-        certificate aur category-wise preparation.
-      </p>
+<section class="section" id="subjects">
+  <h2>All Exam Subjects</h2>
+  <div class="grid">
+    <div class="card"><h3>History</h3><p>Ancient, Medieval, Modern, Bihar History, Freedom Movement.</p></div>
+    <div class="card"><h3>Geography</h3><p>India, World, Bihar Geography, Map Practice.</p></div>
+    <div class="card"><h3>Polity</h3><p>Constitution, Parliament, President, PM, Governor, Rights.</p></div>
+    <div class="card"><h3>Economy</h3><p>Budget, Banking, RBI, GDP, Tax, Government Schemes.</p></div>
+    <div class="card"><h3>Physics</h3><p>Motion, Force, Light, Sound, Electricity, Magnetism.</p></div>
+    <div class="card"><h3>Chemistry</h3><p>Atom, Acid-Base, Metal, Non-Metal, Chemical Reaction.</p></div>
+    <div class="card"><h3>Biology</h3><p>Human Body, Disease, Plant, Animal, Nutrition.</p></div>
+    <div class="card"><h3>Math</h3><p>Percentage, Profit-Loss, Ratio, SI-CI, Time & Work.</p></div>
+    <div class="card"><h3>Reasoning</h3><p>Series, Coding-Decoding, Direction, Blood Relation, Venn Diagram.</p></div>
+    <div class="card"><h3>English</h3><p>Grammar, Vocabulary, Synonyms, Antonyms, Error Detection.</p></div>
+    <div class="card"><h3>Hindi</h3><p>व्याकरण, संधि, समास, पर्यायवाची, विलोम, मुहावरे।</p></div>
+    <div class="card"><h3>Computer</h3><p>Basic Computer, Internet, MS Office, Shortcut Keys.</p></div>
+  </div>
+</section>
 
-      <div class="hero-grid">
-        <div><b id="dashScore">0</b><span>Live Score</span></div>
-        <div><b id="dashRank">--</b><span>Your Rank</span></div>
-        <div><b id="dashTime">10:00</b><span>Time Left</span></div>
-        <div><b id="dashStreak">1</b><span>Day Streak</span></div>
-      </div>
-    </div>
+<section class="section" id="quiz">
+  <h2>Practice Set / Quiz</h2>
+  <div class="grid">
+    <div class="card"><h3>Daily Quiz</h3><p>Roz 10-20 important questions add karo.</p></div>
+    <div class="card"><h3>Mock Test</h3><p>Full exam pattern par practice set.</p></div>
+    <div class="card"><h3>PYQ</h3><p>Previous year questions subject-wise.</p></div>
+  </div>
+</section>
 
-    <div class="login-card">
-      <div id="authBox">
-        <h3 id="authTitle">Student Login</h3>
-        <input id="authName" placeholder="Full name" value="Pawan Kumar"/>
-        <input id="authEmail" placeholder="Email or Mobile"/>
-        <input id="authPassword" type="password" placeholder="Password"/>
-        <button onclick="loginUser()" class="primary" id="authBtn">Login</button>
-        <button onclick="toggleAuth()" class="secondary wide2" id="switchBtn">New user? Register</button>
-        <small>Demo login/register. Data browser local storage me save hota hai.</small>
-      </div>
+<section class="section" id="notes">
+  <h2>PDF Notes Download</h2>
+  <div class="grid">
+    <div class="card"><h3>Monthly Current Affairs PDF</h3><p>Har month ka PDF yaha upload karo.</p></div>
+    <div class="card"><h3>Subject Notes</h3><p>History, Polity, Science, Math ke free notes.</p></div>
+  </div>
+</section>
 
-      <div id="profileBox" class="hidden">
-        <h3>Welcome, <span id="profileName">Student</span></h3>
-        <p class="muted">Aap login ho chuke ho. Ab quiz start kar sakte ho.</p>
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <h3>Founder: Pawan Kumar</h3>
+    <p>Email: your-email@gmail.com</p>
+    <p>Telegram / WhatsApp link yaha add kar sakte ho.</p>
+  </div>
+</section>
 
-        <div class="profile-section">
-          <h3>My Profile</h3>
-          <img id="profilePreview" src="https://via.placeholder.com/150" alt="Profile Photo"
-          style="width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #00ff88;">
-          <br><br>
-          <input type="file" id="profileUpload" accept="image/*">
-          <p>Upload Your Profile Photo</p>
-        </div>
+<footer>
+  <p>© 2026 Career Junction | Educational Purpose Only</p>
+</footer>
 
-        <select id="category">
-          <option value="all">All Categories</option>
-          <option value="national">National</option>
-          <option value="sports">Sports</option>
-          <option value="economy">Economy</option>
-          <option value="exam">Exam Focus</option>
-        </select>
-
-        <button onclick="startQuiz()" class="primary">Start Quiz</button>
-        <button onclick="logoutUser()" class="secondary wide2">Logout</button>
-      </div>
-    </div>
-  </section>
-
-  <main>
-    <section class="stats-row">
-      <div class="stat">⚡ Instant Answer</div>
-      <div class="stat">🏆 Auto Rank</div>
-      <div class="stat">📄 Certificate</div>
-      <div class="stat">📱 Mobile Friendly</div>
-    </section>
-
-    <section id="quiz" class="panel quiz-panel">
-      <div class="panel-head">
-        <div>
-          <span class="pill">Live Mock Test</span>
-          <h2 id="quizTitle">Today Current Affairs Quiz</h2>
-        </div>
-        <div class="timer">⏱ <span id="timer">10:00</span></div>
-      </div>
-
-      <div class="progress"><div id="progress"></div></div>
-
-      <div id="questionBox">
-        <p id="qCount" class="qcount">Question 1/15</p>
-        <h3 id="question">Click Start Quiz</h3>
-        <div id="options" class="options"></div>
-        <p id="feedback" class="feedback"></p>
-        <button id="nextBtn" onclick="nextQuestion()" class="primary wide">Next</button>
-      </div>
-
-      <div id="resultBox" class="result hidden">
-        <h2>Result घोषित 🎉</h2>
-        <p id="resultName"></p>
-        <h3><span id="finalScore">0</span>/150</h3>
-        <p id="finalRank"></p>
-        <p id="performanceText"></p>
-        <button onclick="downloadCertificate()" class="primary">Certificate Download</button>
-        <button onclick="restartQuiz()" class="secondary">Restart</button>
-      </div>
-    </section>
-
-    <section class="grid-2">
-      <section class="panel">
-        <div class="panel-head">
-          <div>
-            <span class="pill">Leaderboard</span>
-            <h2>Top Students</h2>
-          </div>
-        </div>
-
-        <table>
-          <thead>
-            <tr><th>Rank</th><th>Name</th><th>Score</th></tr>
-          </thead>
-          <tbody id="leaderboard"></tbody>
-        </table>
-      </section>
-
-      <section class="panel">
-        <div class="panel-head">
-          <div>
-            <span class="pill">Admin Preview</span>
-            <h2>Question Bank</h2>
-          </div>
-        </div>
-
-        <p class="muted">
-          Questions ko <b>script.js</b> file me edit karke daily new quiz bana sakte ho.
-        </p>
-
-        <ul class="admin-list">
-          <li>Category-wise questions</li>
-          <li>Correct answer index</li>
-          <li>Explanation support</li>
-          <li>Local leaderboard demo</li>
-        </ul>
-      </section>
-    </section>
-
-    <section class="panel">
-      <span class="pill">About</span>
-      <h2>About Lage Raho</h2>
-      <p>
-        Lage Raho is a professional current affairs practice website founded by
-        <b>Pawan Kumar</b>. It is made for students who want daily practice,
-        instant result, score tracking and rank system.
-      </p>
-
-      <p class="disclaimer">
-        <b>Disclaimer:</b> This website is only for study and exam preparation.
-        Prediction means expected practice based on trends; no question or result is guaranteed.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    © 2026 Lage Raho | Founder: Pawan Kumar
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
