@@ -1,132 +1,180 @@
 <!DOCTYPE html><html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Career Juction - Exam Prep</title>  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-    body{background:#f4f7fb;color:#111}
-    header{background:#0b5ed7;color:white;padding:18px;text-align:center}
-    nav{background:#083b8a;padding:12px;text-align:center}
-    nav a{color:white;margin:10px;text-decoration:none;font-weight:bold}
-    .hero{padding:35px;text-align:center;background:white}
-    .hero h2{font-size:28px;color:#0b5ed7}
-    .btn{background:#0b5ed7;color:white;border:none;padding:12px 22px;border-radius:8px;margin:8px;cursor:pointer}
-    .container{max-width:1100px;margin:auto;padding:20px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-    .card{background:white;padding:22px;border-radius:14px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
-    input{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:8px}
-    .quiz-option{display:block;width:100%;padding:12px;margin:10px 0;border:1px solid #0b5ed7;border-radius:8px;background:white;cursor:pointer}
-    .quiz-option:hover{background:#eaf2ff}
-    .stats{display:flex;gap:12px;flex-wrap:wrap}
-    .stat{flex:1;background:#0b5ed7;color:white;padding:15px;border-radius:12px;text-align:center}
-    footer{text-align:center;background:#111;color:white;padding:20px;margin-top:30px}
-  </style></head><body><header>
-  <h1>Career Juction</h1>
-  <p>Daily Quiz • Mock Test • Current Affairs • PYQ</p>
-</header><nav>
-  <a href="#">Home</a>
-  <a href="#">Exams</a>
-  <a href="#">Mock Test</a>
-  <a href="#">Current Affairs</a>
-  <a href="#">Login</a>
-</nav><section class="hero">
-  <h2>India’s Smart Exam Preparation Platform</h2>
-  <p>SSC, Railway, Banking, Bihar Exams ke liye daily practice</p>
-  <button class="btn">Start Free Test</button>
-  <button class="btn">View Exams</button>
-</section><div class="container">  <div class="grid">
-    <div class="card">
-      <h3>Login / Register</h3>
-      <input type="text" id="name" placeholder="Enter your name">
-      <input type="email" id="email" placeholder="Enter your email">
-      <button class="btn" onclick="loginUser()">Login</button>
-      <p id="loginStatus">Not Logged In</p>
-    </div><div class="card">
-  <h3>Test Timer</h3>
-  <h1 id="timer">05:00</h1>
-  <button class="btn" onclick="startTimer()">Start Test</button>
-</div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Juction - Exam Prep Platform</title><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f5f7fb;color:#111}
+header{background:#071952;color:#fff;padding:14px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
+.logo{font-size:24px;font-weight:800}
+nav a{color:white;text-decoration:none;margin:0 12px;font-weight:600}
+.loginBtn{background:#ffb703;color:#000;padding:10px 18px;border-radius:8px;border:none;font-weight:700}
+.hero{padding:55px 6%;background:linear-gradient(120deg,#071952,#0b5ed7);color:white;display:grid;grid-template-columns:1.2fr 1fr;gap:25px;align-items:center}
+.hero h1{font-size:42px}
+.hero p{font-size:18px;margin:15px 0}
+.btn{background:#ffb703;color:#000;border:none;padding:13px 22px;border-radius:9px;font-weight:700;cursor:pointer;margin:6px}
+.btn2{background:white;color:#0b5ed7}
+.card{background:white;border-radius:16px;padding:22px;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.container{padding:35px 6%}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.sectionTitle{font-size:28px;margin-bottom:20px}
+.exam{border-left:5px solid #0b5ed7}
+input{width:100%;padding:13px;margin:8px 0;border:1px solid #ccc;border-radius:8px}
+.quizBox{max-width:850px;margin:auto}
+.option{width:100%;padding:14px;margin:10px 0;text-align:left;border:1px solid #0b5ed7;border-radius:10px;background:white;cursor:pointer;font-size:16px}
+.option:hover{background:#eef5ff}
+.topStats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px;margin-bottom:25px}
+.stat{background:#071952;color:white;padding:18px;border-radius:14px;text-align:center}
+.stat h2{font-size:30px}
+.hidden{display:none}
+.leader p{padding:8px;border-bottom:1px solid #eee}
+footer{background:#071952;color:white;text-align:center;padding:25px;margin-top:30px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hero h1{font-size:30px}nav{display:none}}
+</style></head><body><header>
+  <div class="logo">Career Juction</div>
+  <nav>
+    <a href="#exams">Exams</a>
+    <a href="#mock">Mock Test</a>
+    <a href="#current">Current Affairs</a>
+    <a href="#leaderboard">Leaderboard</a>
+  </nav>
+  <button class="loginBtn" onclick="showLogin()">Login</button>
+</header><section class="hero">
+  <div>
+    <h1>India’s Smart Exam Preparation Platform</h1>
+    <p>SSC, Railway, Banking, Bihar Exams ke liye Daily Quiz, Mock Test, PYQ aur Current Affairs.</p>
+    <button class="btn" onclick="startMock()">Start Free Mock Test</button>
+    <button class="btn btn2" onclick="document.getElementById('exams').scrollIntoView()">Explore Exams</button>
+  </div>  <div class="card" style="color:#111">
+    <h2>Login / Register</h2>
+    <input id="userName" placeholder="Enter your name">
+    <input id="userEmail" placeholder="Enter your email">
+    <button class="btn" onclick="login()">Login Now</button>
+    <p id="loginStatus">Status: Guest User</p>
+  </div>
+</section><div class="container">  <div class="topStats">
+    <div class="stat"><h2 id="score">0</h2><p>Score</p></div>
+    <div class="stat"><h2 id="attempted">0</h2><p>Attempted</p></div>
+    <div class="stat"><h2 id="correct">0</h2><p>Correct</p></div>
+    <div class="stat"><h2 id="timer">10:00</h2><p>Time Left</p></div>
+  </div>  <section id="exams">
+    <h2 class="sectionTitle">Popular Exams</h2>
+    <div class="grid">
+      <div class="card exam"><h3>SSC Exams</h3><p>SSC GD, CGL, CHSL, MTS</p><button class="btn">View Tests</button></div>
+      <div class="card exam"><h3>Railway Exams</h3><p>Group D, NTPC, ALP</p><button class="btn">View Tests</button></div>
+      <div class="card exam"><h3>Bihar Exams</h3><p>BSSC, Bihar Police, Daroga</p><button class="btn">View Tests</button></div>
+      <div class="card exam"><h3>Banking Exams</h3><p>IBPS, SBI, Clerk, PO</p><button class="btn">View Tests</button></div>
+    </div>
+  </section><br><br>
 
-<div class="card">
-  <h3>Your Score</h3>
-  <h1 id="score">0</h1>
-  <p>Total Questions: <span id="total">0</span></p>
-</div>
-
-  </div>  <br>  <div class="card">
-    <h2>Daily Mock Test Question</h2>
-    <p><b>Q1.</b> भारत का संविधान कब लागू हुआ?</p><button class="quiz-option" onclick="checkAnswer(this, false)">15 August 1947</button>
-<button class="quiz-option" onclick="checkAnswer(this, true)">26 January 1950</button>
-<button class="quiz-option" onclick="checkAnswer(this, false)">2 October 1950</button>
-<button class="quiz-option" onclick="checkAnswer(this, false)">26 November 1949</button>
+  <section id="mock" class="card quizBox">
+    <h2>Live Mock Test</h2>
+    <p><b id="questionNo">Q1.</b> <span id="questionText">भारत का संविधान कब लागू हुआ?</span></p><button class="option" onclick="answer(0)">15 August 1947</button>
+<button class="option" onclick="answer(1)">26 January 1950</button>
+<button class="option" onclick="answer(2)">2 October 1950</button>
+<button class="option" onclick="answer(3)">26 November 1949</button>
 
 <h3 id="result"></h3>
+<button class="btn" onclick="nextQuestion()">Next Question</button>
+<button class="btn btn2" onclick="finishTest()">Submit Test</button>
 
-  </div>  <br>  <div class="grid">
-    <div class="card">
-      <h3>Popular Exams</h3>
-      <p>SSC GD, SSC CGL, Railway Group D, Bihar Police, BSSC</p>
-    </div><div class="card">
-  <h3>Current Affairs</h3>
-  <p>Daily current affairs quiz Hindi + English me update hoga.</p>
-</div>
+  </section><br><br>
 
-<div class="card">
-  <h3>Leaderboard</h3>
-  <p>1. Pawan Kumar - 10 Marks</p>
-  <p>2. Student User - 8 Marks</p>
-  <p>3. Guest User - 6 Marks</p>
-</div>
+  <section id="current">
+    <h2 class="sectionTitle">Daily Current Affairs</h2>
+    <div class="grid">
+      <div class="card"><h3>Today GK</h3><p>National, International, Sports, Economy daily update.</p></div>
+      <div class="card"><h3>Daily Quiz</h3><p>10 questions daily practice ke liye.</p></div>
+      <div class="card"><h3>PYQ Practice</h3><p>Previous year questions topic wise.</p></div>
+    </div>
+  </section><br><br>
 
-  </div></div><footer>
+  <section id="leaderboard">
+    <h2 class="sectionTitle">Leaderboard</h2>
+    <div class="card leader">
+      <p>🥇 Pawan Kumar - 95 Marks</p>
+      <p>🥈 Student User - 88 Marks</p>
+      <p>🥉 Guest User - 75 Marks</p>
+    </div>
+  </section></div><footer>
   <p>© 2026 Career Juction | Founder: Sanket Kumar</p>
+  <p>Made for exam preparation and learning purpose.</p>
 </footer><script>
-  let score = 0;
-  let total = 0;
-  let timeLeft = 300;
-  let timerInterval;
+let questions=[
+  {q:"भारत का संविधान कब लागू हुआ?",o:["15 August 1947","26 January 1950","2 October 1950","26 November 1949"],a:1},
+  {q:"भारत की राजधानी क्या है?",o:["Patna","Delhi","Mumbai","Kolkata"],a:1},
+  {q:"Bihar की राजधानी क्या है?",o:["Gaya","Patna","Muzaffarpur","Bhagalpur"],a:1},
+  {q:"CPU का full form क्या है?",o:["Central Process Unit","Central Processing Unit","Computer Personal Unit","Control Power Unit"],a:1},
+  {q:"भारत का राष्ट्रीय पशु कौन है?",o:["Lion","Tiger","Elephant","Cow"],a:1}
+];
 
-  function loginUser(){
-    let name = document.getElementById("name").value;
-    if(name === ""){
-      alert("Please enter your name");
-    } else {
-      document.getElementById("loginStatus").innerHTML = "Logged in as: " + name;
+let current=0, score=0, attempted=0, correct=0, answered=false;
+let timeLeft=600, timerStarted=false, timerInterval;
+
+function login(){
+  let name=document.getElementById("userName").value;
+  if(name.trim()==""){alert("Name enter karo");return;}
+  document.getElementById("loginStatus").innerHTML="Status: Logged in as "+name;
+}
+
+function showLogin(){
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function startMock(){
+  document.getElementById("mock").scrollIntoView({behavior:"smooth"});
+  startTimer();
+}
+
+function startTimer(){
+  if(timerStarted)return;
+  timerStarted=true;
+  timerInterval=setInterval(()=>{
+    let m=Math.floor(timeLeft/60);
+    let s=timeLeft%60;
+    document.getElementById("timer").innerHTML=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+    if(timeLeft<=0){finishTest();}
+    timeLeft--;
+  },1000);
+}
+
+function answer(selected){
+  if(answered)return;
+  answered=true;
+  attempted++;
+  document.getElementById("attempted").innerHTML=attempted;
+
+  if(selected===questions[current].a){
+    score+=2;
+    correct++;
+    document.getElementById("score").innerHTML=score;
+    document.getElementById("correct").innerHTML=correct;
+    document.getElementById("result").innerHTML="✅ Correct Answer +2 Marks";
+  }else{
+    document.getElementById("result").innerHTML="❌ Wrong Answer";
+  }
+}
+
+function nextQuestion(){
+  if(current<questions.length-1){
+    current++;
+    answered=false;
+    document.getElementById("questionNo").innerHTML="Q"+(current+1)+".";
+    document.getElementById("questionText").innerHTML=questions[current].q;
+    let btn=document.querySelectorAll(".option");
+    for(let i=0;i<4;i++){
+      btn[i].innerHTML=questions[current].o[i];
+      btn[i].style.background="white";
     }
+    document.getElementById("result").innerHTML="";
+  }else{
+    finishTest();
   }
+}
 
-  function startTimer(){
-    clearInterval(timerInterval);
-    timerInterval = setInterval(function(){
-      let minutes = Math.floor(timeLeft / 60);
-      let seconds = timeLeft % 60;
-
-      document.getElementById("timer").innerHTML =
-      String(minutes).padStart(2,'0') + ":" + String(seconds).padStart(2,'0');
-
-      if(timeLeft <= 0){
-        clearInterval(timerInterval);
-        alert("Time Over! Your Score: " + score);
-      }
-
-      timeLeft--;
-    },1000);
-  }
-
-  function checkAnswer(button, isCorrect){
-    total++;
-    document.getElementById("total").innerHTML = total;
-
-    if(isCorrect){
-      score++;
-      document.getElementById("score").innerHTML = score;
-      document.getElementById("result").innerHTML = "✅ Correct Answer!";
-      button.style.background = "#d4edda";
-    } else {
-      document.getElementById("result").innerHTML = "❌ Wrong Answer!";
-      button.style.background = "#f8d7da";
-    }
-  }
+function finishTest(){
+  clearInterval(timerInterval);
+  alert("Test Submitted! Your Score: "+score+" / "+(questions.length*2));
+}
 </script></body>
 </html>
-or bhi bhoot kuch milega 
