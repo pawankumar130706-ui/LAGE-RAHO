@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Career Juction Admin</title>
+</head>
+<body>
+
+<h2>Add Question</h2>
+
+<input id="question" placeholder="Question"><br><br>
+<input id="option1" placeholder="Option 1"><br><br>
+<input id="option2" placeholder="Option 2"><br><br>
+<input id="option3" placeholder="Option 3"><br><br>
+<input id="option4" placeholder="Option 4"><br><br>
+<input id="answer" placeholder="Correct Answer"><br><br>
+
+<button onclick="saveQuestion()">Save</button>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "career-juction.firebaseapp.com",
+  projectId: "career-juction",
+  storageBucket: "career-juction.appspot.com",
+  messagingSenderId: "721682821282",
+  appId: "1:721682821282:web:ae8505aefc19e4c7d567fb"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.saveQuestion = async function() {
+ await addDoc(collection(db,"questions"),{
+   question: document.getElementById("question").value,
+   option1: document.getElementById("option1").value,
+   option2: document.getElementById("option2").value,
+   option3: document.getElementById("option3").value,
+   option4: document.getElementById("option4").value,
+   answer: document.getElementById("answer").value
+ });
+
+ alert("Question Saved");
+}
+</script>
+
+</body>
+</html>
